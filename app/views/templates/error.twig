@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <style type='text/css'>
+        body {
+            background-color: white;
+            color: #333333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 36px;
+            line-height: 18px;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 500px;
+        }
+
+        p {
+            padding-top: 25px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div align="center">
+    <div class='container' align="left">
+        <pre>
+
+       .__               .__                .__
+  _____|__| _____ ______ |  | ___.__._____  |  |   ____   ____
+ /  ___/  |/     \\____ \|  |<   |  |\__  \ |  | _/ __ \_/ ___\
+ \___ \|  |  Y Y  \  |_> >  |_\___  | / __ \|  |_\  ___/\  \___
+/____  >__|__|_|  /   __/|____/ ____|(____  /____/\___  >\___  >
+     \/         \/|__|        \/          \/          \/     \/
+
+        </pre>
+        <p>
+            {% block error %}{% endblock %}
+        </p>
+        <p>
+            {% block details %}{% endblock %}
+        </p>
+        <p><a href="/">Return home.</a> </p>
+    </div>
+</div>
+</body>
+</html>

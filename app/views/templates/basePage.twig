@@ -1,0 +1,51 @@
+<!--
+alec@simplyalec.com | 10/3/2017
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+     meta
+     -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if data.page.name is defined %}
+        <title>{{ data.page.name }} | simplyalec</title>
+    {% else %}
+        <title>simplyalec</title>
+    {% endif %}
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <!--
+    /meta
+    -->
+    <!--
+    stylesheets
+    -->
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+    <!--
+    /stylesheets
+     -->
+    <!--
+    javascript
+     -->
+    <script src="/assets/js/app.js"></script>
+    <!--
+    /javascript
+    -->
+</head>
+<body>
+<!--
+page specific content
+ -->
+{% block content %}{% endblock %}
+<!--
+/page specific content
+ -->
+</body>
+<!--
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE0SURBVFhH7ZIxCgIxEEVTewU7PYQWlgv23kFEvIXYeANLOxtvYGnhBWw9hnXkCX+ZDYKibAjrFJ9kJpmd/yYb4uUeuyQHKl0OVLqKAwrj3sv8p3KgtuVAiRyobTlQov8Dmo6quF1t6pj9sD+o4/Pu1IiXs3kMIdTinPxhvW/cux2vjXPE+WRR1fE3eguEEaAUs8cIhogBEDB7exez9q7d811i1WowWX45GrNiBsMYxxA5TGBGE5dhKQVWHd+xw+IO51mA1BzRmJXmmNdvJKC0VkbZWwDVqYb880VzAMmUmpLDkMCIP3kh3bF1rPo1ibMA6SU0VQQcsQCV0wsgGbWQaR1wxALMAoRsU8TUNVUrDJOX0hdL6+yrEWcDyiUHSuRAbatzQL/KgUqXA5UuBypdHQO6xwewTUlhnpb/XAAAAABJRU5ErkJggg==
+-->
+</html>

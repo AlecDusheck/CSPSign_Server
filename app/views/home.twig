@@ -1,0 +1,129 @@
+{% extends 'templates/basePage.twig' %}
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">simplyalec</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Daily Animation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/history">Animation History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/credit">Credit</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-lg-8">
+                <img class="img-fluid rounded" src="https://placehold.it/900x400" alt="">
+            </div>
+            <div class="col-lg-4">
+                <h1>AP CSP Sign Daily Animation</h1>
+                <p>As part of our project, you can change the animation that plays on the sign daily. Each day, the
+                    animation is reset and anyone may choose a new one to be displayed.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-secondary my-4 text-center">
+            <div class="card-body">
+                <p class="text-white m-0">Changes take time to apply. The sign updates on a 10 minute
+                    interval.</p>
+            </div>
+        </div>
+        <div class="row anim-disp wow bounceIn">
+            <div class="col-md-12 mb-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="centered">
+                            {% if data.page.signOffline == 'true' %}
+                                <h2 class="card-title">Sorry, the sign is offline.</h2>
+                                <p class="card-text">If you just connected it, you may have to wait up to 10 minutes.</p>
+                                {% else %}
+                                    <h2 class="card-title">Animation for {{ data.page.date }}:</h2>
+                                    {% if data.page.emptySchedule != 'true' %}
+                                        <p class="card-text">The current animation is: <span
+                                                    class="anim-name {{ data.page.currentAnim }}-anim-name">{{ data.page.currentAnim }}</span>
+                                        </p>
+                                        <p class="card-text">Better luck tomorrow!</p>
+                                    {% else %}
+                                        <p class="card-text">There isn't anything scheduled. <a href="#" data-toggle="modal"
+                                                                                                data-target="#scheduleAnimation">Schedule
+                                                an animation</a>!</p>
+                                    {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if (data.page.emptySchedule != 'true') and (data.page.signOffline == 'false') %}
+                        <div class="card-footer">
+                            <p class="card-text">You can choose a new animation tomorrow ({{ data.page.tomDate }}).</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="scheduleAnimation" tabindex="-1" role="dialog" aria-labelledby="scheduleAnimationLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Schedule Today's Animation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" action="/" id="scheduleForm">
+                    <div class="modal-body">
+                        <select class="form-control" name="animation" id="animation">
+                            <option value="Rainbow">Rainbow</option>
+                            <option value="Hyperloop">Hyperloop</option>
+                            <option value="Fire">Fire</option>
+                            <option value="Static">Static</option>
+                        </select>
+                        <p class="small">We use an invisible ReCaptcha to verify you are human.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary g-recaptcha" data-sitekey="6LfNFDMUAAAAAAqPM6KQTT0jF23jP6hXRJIBS15n" data-callback='onSubmit'>Schedule</button>
+                    </div>
+                </form>
+                <script>
+                    function onSubmit(token) {
+                        document.getElementById("scheduleForm").submit();
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Made by Alec Dusheck and Rushil Desai. Made possible by Julian
+                Champine, Sam Martin & others.</p>
+            <p class="m-0 text-center text-white">Class of 2021!</p>
+        </div>
+    </footer>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    {% if data.errors is defined %}
+        {% for error in data.errors %}
+            <script>
+                toastr.error('{{ error }}');
+            </script>
+        {% endfor %}
+    {% endif %}
+    {% if data.msgs is defined %}
+        {% for msg in data.msgs %}
+            <script>
+                toastr.success('{{ msg }}');
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
