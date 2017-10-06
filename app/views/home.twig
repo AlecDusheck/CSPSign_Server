@@ -1,27 +1,5 @@
 {% extends 'templates/basePage.twig' %}
 {% block content %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">simplyalec</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Daily Animation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/history">Animation History</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/credit">Credit</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div class="container">
         <div class="row my-4">
             <div class="col-lg-8">
@@ -93,7 +71,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary g-recaptcha" data-sitekey="6LfNFDMUAAAAAAqPM6KQTT0jF23jP6hXRJIBS15n" data-callback='onSubmit'>Schedule</button>
+                        <button type="submit" class="btn btn-primary g-recaptcha"
+                                data-sitekey="{{ data.recaptcha.publicKey }}" data-callback='onSubmit'>Schedule
+                        </button>
                     </div>
                 </form>
                 <script>
@@ -104,13 +84,6 @@
             </div>
         </div>
     </div>
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Made by Alec Dusheck and Rushil Desai. Made possible by Julian
-                Champine, Sam Martin & others.</p>
-            <p class="m-0 text-center text-white">Class of 2021!</p>
-        </div>
-    </footer>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     {% if data.errors is defined %}
         {% for error in data.errors %}

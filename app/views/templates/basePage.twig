@@ -37,6 +37,28 @@ alec@simplyalec.com | 10/3/2017
     -->
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">simplyalec</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item {% if data.page.name == 'Daily Animation' %} active {% endif %}">
+                    <a class="nav-link" href="/">Daily Animation</a>
+                </li>
+                <li class="nav-item {% if data.page.name == 'Animation History' %} active {% endif %}">
+                    <a class="nav-link" href="/history">Animation History</a>
+                </li>
+                <li class="nav-item {% if data.page.name == 'Credit' %} active {% endif %}">
+                    <a class="nav-link" href="/credit">Credit</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <!--
 page specific content
  -->
@@ -44,6 +66,13 @@ page specific content
 <!--
 /page specific content
  -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Made by Alec Dusheck and Rushil Desai. Made possible by Julian
+            Champine, Sam Martin & others.</p>
+        <p class="m-0 text-center text-white">Class of 2021!</p>
+    </div>
+</footer>
 </body>
 <!--
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE0SURBVFhH7ZIxCgIxEEVTewU7PYQWlgv23kFEvIXYeANLOxtvYGnhBWw9hnXkCX+ZDYKibAjrFJ9kJpmd/yYb4uUeuyQHKl0OVLqKAwrj3sv8p3KgtuVAiRyobTlQov8Dmo6quF1t6pj9sD+o4/Pu1IiXs3kMIdTinPxhvW/cux2vjXPE+WRR1fE3eguEEaAUs8cIhogBEDB7exez9q7d811i1WowWX45GrNiBsMYxxA5TGBGE5dhKQVWHd+xw+IO51mA1BzRmJXmmNdvJKC0VkbZWwDVqYb880VzAMmUmpLDkMCIP3kh3bF1rPo1ibMA6SU0VQQcsQCV0wsgGbWQaR1wxALMAoRsU8TUNVUrDJOX0hdL6+yrEWcDyiUHSuRAbatzQL/KgUqXA5UuBypdHQO6xwewTUlhnpb/XAAAAABJRU5ErkJggg==

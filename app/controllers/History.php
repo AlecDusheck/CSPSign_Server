@@ -2,14 +2,12 @@
 
 namespace sign\controllers;
 
-use Slim\Views\Twig as View, PDO as PDO, Twig_SimpleFilter as custFunc;
-
 class History extends Controller
 {
 
     public function index($request, $response)
     {
-        @$this->data->page->name = "History";
+        @$this->data->page->name = "Animation History";
 
         $getAnimations = $this->db->prepare('SELECT playDate, animationName FROM dbo.animationSchedule');
         $getAnimations->execute();

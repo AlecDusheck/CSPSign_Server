@@ -4,7 +4,11 @@ namespace sign\classes;
 
 class recaptcha{
 
-    public function __construct(){
+    private $_privateKey;
+
+    public function __construct($privateKey)
+    {
+        $this->_privateKey = $privateKey;
     }
 
     public function verifyResponse($recaptcha){
@@ -21,7 +25,7 @@ class recaptcha{
 
         $getResponse = $this->getHTTP(
             array(
-                'secret' => 'CHANGE ME',
+                'secret' => $this->_privateKey,
                 'remoteip' => $remoteIp,
                 'response' => $recaptcha,
             )

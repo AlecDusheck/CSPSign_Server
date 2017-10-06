@@ -3,22 +3,20 @@
 //Config
 $settings = [
     'db' => [
-        'host' => 'CHANGE ME', /* This line is changeable. */
+        'host' => 'XXXXXXXXXXXXXXXXX', /* This line is changeable. */
         'user' => 'adusheck', /* This line is changeable. */
-        'pass' => 'CHANGE ME', /* This line is changeable. */
+        'pass' => 'XXXXXXXXXXXXXXXXX', /* This line is changeable. */
         'name' => 'apcspsign' /* This line is changeable. */
     ],
     'general' => [
         'siteRoot' => (!empty($_SERVER['HTTPS']) ? 'https':'http').'://'.$_SERVER['HTTP_HOST'],
-        'recaptchaKey' => 'CHANGE ME',
+        'recaptchaPublicKey' => 'XXXXXXXXXXXXXXXXX',
+        'recaptchaPrivateKey' => 'XXXXXXXXXXXXXXXXX',
         'latestClientVersion' => '0.2'
     ],
     'displayErrorDetails' => false
 ];
 
-
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
 
 //Load all composer libs
 include_once '../vendor/autoload.php';

@@ -2,13 +2,14 @@
 
 namespace sign\controllers;
 
-use Slim\Views\Twig as View, PDO as PDO, Twig_SimpleFilter as custFunc;
+use PDO as PDO;
 
 class Home extends Controller
 {
     public function index($request, $response)
     {
-        @$this->data->page->name = "Home";
+        @$this->data->page->name = "Daily Animation";
+        @$this->data->recaptcha->publicKey = $this->container->get('settings')['general']['recaptchaPublicKey'];
 
         if (isset($_SESSION['msg'])) {
             @$this->data->msgs = $_SESSION['msg'];
@@ -56,7 +57,7 @@ class Home extends Controller
         $recaptcha = $_POST['g-recaptcha-response'];
         $animation = $_POST['animation'];
 
-        $object = new \sign\classes\recaptcha();
+        $object = new \sign\classes\recaptcha($this->container->get('settings')['general']['recaptchaPrivateKey']);
         $cResponse = $object->verifyResponse($recaptcha);
 
         if (isset($cResponse['success']) and $cResponse['success'] != true) {
